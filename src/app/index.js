@@ -1,8 +1,7 @@
-import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
-
-import { client } from './init/client';
+import React from 'react';
 import { Pet } from './bus/pet';
+import { client } from './init/client';
 
 export const App = () => {
   return (

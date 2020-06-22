@@ -1,5 +1,4 @@
 import React from 'react';
-
 // Hooks
 import { useQueryAvailablePets } from './hooks/useQueryAvailablePets/index';
 
