@@ -1,5 +1,6 @@
 import { useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
+import { useState } from 'react';
 
 import { useForm } from './../useForm';
 
@@ -13,6 +14,15 @@ export const useCustomerAuth = () => {
     password: ''
   });
 
+  const [isAuthorized, setIsAuthorized] = useState(false);
+
+  const authorizedCustomer = data && data.logIn;
+  const token = authorizedCustomer && authorizedCustomer.token;
+
+  if (token) {
+    localStorage.setItem('token', token);
+  }
+
   const login = () => {
     loginServer({
       variables: form
@@ -20,8 +30,8 @@ export const useCustomerAuth = () => {
   };
 
   return {
-    handleChange,
     login,
-    authorizedCustomer: data && data.logIn
+    handleChange,
+    authorizedCustomer
   };
 };
