@@ -1,17 +1,27 @@
-import { useForm } from './../useForm/index';
+import { useMutation } from '@apollo/react-hooks';
+import { loader } from 'graphql.macro';
+
+import { useForm } from './../useForm';
+
+const mutationLogin = loader('./gql/mutationLogin.graphql');
 
 export const useCustomerAuth = () => {
+  const [loginServer, { data }] = useMutation(mutationLogin);
+
   const { form, handleChange } = useForm({
     username: '',
     password: ''
   });
 
   const login = () => {
-    console.log(form);
+    loginServer({
+      variables: form
+    });
   };
 
   return {
     handleChange,
-    login
+    login,
+    authorizedCustomer: data && data.logIn
   };
 };
