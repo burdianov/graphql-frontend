@@ -1,8 +1,14 @@
 import React from 'react';
-import { useCustomer } from './hooks/useCustomer';
+import { useCustomerCreator } from './hooks/useCustomerCreator';
 
 export const Customer = () => {
-  const { loading, error, handleChange, save, createdAccount } = useCustomer();
+  const {
+    loading,
+    error,
+    handleChange,
+    save,
+    createdAccount
+  } = useCustomerCreator();
 
   const loaderJSX = loading && <p>Loading...</p>;
 

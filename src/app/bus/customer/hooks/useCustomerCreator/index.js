@@ -3,12 +3,12 @@ import { useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 
 // Hooks
-import { useForm } from './../useForm';
+import { useForm } from '../useForm';
 
 // Mutations
 const mutationCreateAccount = loader('./gql/mutationCreateAccount.graphql');
 
-export const useCustomer = () => {
+export const useCustomerCreator = () => {
   const [addUser, { loading, error, data }] = useMutation(
     mutationCreateAccount
   );
