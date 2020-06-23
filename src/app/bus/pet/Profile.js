@@ -13,7 +13,7 @@ export const Profile = () => {
     });
   };
 
-  const loaderJSX = loading && <p>Loading...</p>;
+  const loaderJSX = loading && <p>Working...</p>;
 
   const errorJSX = error && <p>We have a problem: {error.message}</p>;
 
